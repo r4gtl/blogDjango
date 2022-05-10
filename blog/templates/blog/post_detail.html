@@ -1,15 +1,17 @@
 {% extends 'base.html' %} 
 {% load crispy_forms_tags %}
+{% load blog_extras %}
 {% block content %}
 
-{% load crispy_forms_tags %}
+
 <div class="container">
   <div class="row">
     <div class="col-md-8 card mb-4  mt-3 left  top">
+      <img src="{{ post.logo_post.url }}" class="card-img-top mt-2" style="max-width:100%">
       <div class="card-body">
         <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
         <p class=" text-muted">{{ post.author }} | {{ post.created_on }}</p>
-        <p class="card-text ">{{ post.content | safe }}</p>
+        <p class="card-text ">{{ post.content | convert_markdown | safe }}</p>
       </div>
     </div>
     {% block sidebar %} {% include 'partials/_sidebar.html' %} {% endblock sidebar %}
