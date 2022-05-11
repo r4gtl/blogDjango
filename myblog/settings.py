@@ -54,9 +54,14 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'core',
+    'django_summernote'
 ]
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+#For Django Summernote
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+SUMMERNOTE_THEME = 'bs5'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
