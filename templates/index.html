@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
 <style>
     body {
@@ -11,18 +12,16 @@
         color: white;
     }
 
-    .card {
-        box-shadow: 0 16px 48px #E3E7EB;
-    }
+    
 </style>
 
-<header class="masthead">
+<header class="masthead fixed-top">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
             <div class=" col-md-8 col-md-10 mx-auto">
                 <div class="site-heading">
-                    <h3 class=" site-heading my-4 mt-3 text-white"> Welcome to my awesome Blog </h3>
+                    <h3 class=" site-heading my-4 mt-3 text-white"> Hi! This is my Django journey </h3>
                     <p class="text-light">We Love Django As much as you do..! &nbsp
                     </p>
                 </div>
@@ -30,10 +29,11 @@
         </div>
     </div>
 </header>
+
 <div class="container">
-    <div class="row">
+    <div class="row justify-content-between">
         <!-- Blog Entries Column -->
-        <div class="col-md-8 mt-3 left">
+        <div class="col-md-6 mt-3 right">
             {% for post in post_list %}
             <div class="card mb-4">
                 <img src="{{ post.logo_post.url }}" class="card-img-top" style="max-width:100%">
@@ -48,6 +48,7 @@
         </div>
         {% block sidebar %} {% include 'partials/_sidebar.html' %} {% endblock sidebar %}
     </div>
+    
 </div>
 
 {% if is_paginated %}

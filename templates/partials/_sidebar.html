@@ -1,20 +1,36 @@
 {% block sidebar %}
+{% load static %}
 
-<style>
-        .card{
-            box-shadow: 0 16px 48px #E3E7EB;
-        }
-
-</style>
 
 <!-- Sidebar Widgets Column -->
-<div class="col-md-4 float-right ">
-<div class="card my-4">
-        <h5 class="card-header">About Us</h5>
+<style>
+.sidebar {
+    font-size: 12px;
+}
+</style>
+<div class="col-md-3 float-right sidebar">
+<div class="card my-3 ms-4">
+    <img src="{% static 'img/Me.jpg' %}" class="card-img-top" alt="...">
+        <h5 class="card-header">About Me</h5>
     <div class="card-body">
-        <p class="card-text"> This awesome blog is made on the top of our Favourite full stack Framework 'Django', follow up the tutorial to learn how we made it..!</p>
+        <p class="card-text"> This is the place where I write down what I learn.</p>
         <a href="https://djangocentral.com/building-a-blog-application-with-django"
-           class="btn btn-danger">Know more!</a>
+           class="btn btn-danger">whoami</a>
+    </div>
+</div>
+<div class="card my-3 ms-4">
+    <img src="{% static 'img/Octocat.jpg' %}" class="card-img-top" alt="...">
+        <h5 class="card-header">About Me</h5>
+    <div class="card-body">
+        <p class="card-text"> How to start a git repository</p>
+        <p class="card-text">$ git config --global user.name "Your Name"</p>
+        <p class="card-text">$ git config --global user.email "you@youraddress.com"</p>
+        <p class="card-text">$ git config --global push.default matching</p>
+        <p class="card-text">$ git config --global alias.co checkout</p>
+        <p class="card-text">$ git init</p>
+
+        <a href="https://djangocentral.com/building-a-blog-application-with-django"
+           class="btn btn-danger">whoami</a>
     </div>
 </div>
 </div>
