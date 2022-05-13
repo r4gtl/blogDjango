@@ -9,6 +9,14 @@ STATUS = (
     (1, "Publish")
 )
 
+
+class PostCategory(models.Model):
+    name =models.CharField(max_length=80)
+
+    def __str__(self):
+        return(self.name)
+
+
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
@@ -18,6 +26,7 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     logo_post = models.ImageField(blank=True, null=True)
+    category = models.ForeignKey(PostCategory, on_delete=models.DO_NOTHING, related_name='category', default=1)
 
     class Meta:
         ordering = ['-created_on']
@@ -41,3 +50,5 @@ class Comment(models.Model):
 
     def __str__(self):
         return 'Comment {} by {}'. format(self.body, self.name)
+
+

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Comment
+from .models import Post, Comment, PostCategory
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -14,6 +14,10 @@ class CommentAdmin(admin.ModelAdmin):
         queryset.update(active=True)
         
 
+class PostCategoryAdmin(admin.ModelAdmin):
+    list_display = ('name', )
+    search_fields = ('name',)
+
 
 
 class PostAdmin(SummernoteModelAdmin):
@@ -27,4 +31,5 @@ class PostAdmin(SummernoteModelAdmin):
 
 
 admin.site.register(Post, PostAdmin)
+admin.site.register(PostCategory, PostCategoryAdmin)
 
