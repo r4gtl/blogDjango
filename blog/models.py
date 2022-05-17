@@ -9,6 +9,11 @@ STATUS = (
     (1, "Publish")
 )
 
+FIXING_STATUS = (
+    (0, "Not fixed"),
+    (1, "Fixed Left"),
+    (2, "Fixed Right")
+)
 
 class PostCategory(models.Model):
     name =models.CharField(max_length=80)
@@ -25,7 +30,8 @@ class Post(models.Model):
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    logo_post = models.ImageField(blank=True, null=True)
+    fixing_status = models.IntegerField(choices=FIXING_STATUS, default=0)
+    logo_post = models.ImageField(blank=True, null=True)    
     category = models.ForeignKey(PostCategory, on_delete=models.DO_NOTHING, related_name='category', default=1)
 
     class Meta:

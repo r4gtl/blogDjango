@@ -7,12 +7,18 @@ from django.shortcuts import render, get_object_or_404
 
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
+    queryset_fixed=Post.objects.filter(fixing_status=1).order_by('-created_on')
     template_name = 'index.html'
     paginate_by = 9
 
 #class PostDetail(generic.DetailView):
  #   model = Post
   #  template_name = 'post_detail.html'
+
+def CategoryView(request, cats):
+    category_posts = Post.objects.filter(category=cats)
+    return render(request, 'blog/categories.html', {'cats': cats, 'category_posts': category_posts})
+
 
 def post_detail(request, slug):
     template_name = 'blog/post_detail.html'
