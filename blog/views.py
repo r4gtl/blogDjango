@@ -1,13 +1,13 @@
 from django.shortcuts import render
 from django.views import generic
-from .models import Post
+from .models import Post, PostCategory
 from .forms import CommentForm
 from django.shortcuts import render, get_object_or_404
 
 
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
-    queryset_fixed=Post.objects.filter(fixing_status=1).order_by('-created_on')
+    
     template_name = 'index.html'
     paginate_by = 9
 
@@ -15,9 +15,14 @@ class PostList(generic.ListView):
  #   model = Post
   #  template_name = 'post_detail.html'
 
+def fixed_posts():
+    queryset_fixed=Post.objects.filter(fixing_status=1).order_by('-created_on')
+    return render('partials/_sidebar.html', {'queryset_fixed': queryset_fixed})
+
 def CategoryView(request, cats):
     category_posts = Post.objects.filter(category=cats)
-    return render(request, 'blog/categories.html', {'cats': cats, 'category_posts': category_posts})
+    category = get_object_or_404(PostCategory, pk=cats)
+    return render(request, 'blog/categories.html', {'cats': cats, 'category_posts': category_posts, 'category': category})
 
 
 def post_detail(request, slug):

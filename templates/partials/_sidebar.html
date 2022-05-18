@@ -9,30 +9,18 @@
 }
 </style>
 <div class="col-md-3 float-right sidebar">
+    {% for post_fixed in queryset_fixed %}
 <div class="card my-3 ms-4">
-    <img src="{% static 'img/Me.jpg' %}" class="card-img-top" alt="...">
-        <h5 class="card-header">About Me</h5>
-    <div class="card-body">
-        <p class="card-text"> This is the place where I write down what I learn.</p>
-        <a href="https://djangocentral.com/building-a-blog-application-with-django"
-           class="btn btn-danger">whoami</a>
-    </div>
+    <img src="{{ post.logo_post.url }}" class="card-img-top" style="max-width:100%; max-height: 100px;">
+                <div class="card-body">
+                    <a href="{% url 'category' post.category_id  %}"><p class="card-text text-muted">{{ post.category }}</p></a>                    
+                    <h2 class="card-title">{{ post.title|slice:":14" }}</h2>
+                    <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
+                    <!--<p class="card-text">{{post.content|slice:":200" }}</p>-->
+                    <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+                </div>
 </div>
-<div class="card my-3 ms-4">
-    <img src="{% static 'img/Octocat.jpg' %}" class="card-img-top" alt="...">
-        <h5 class="card-header">About Me</h5>
-    <div class="card-body">
-        <p class="card-text"> How to start a git repository</p>
-        <p class="card-text">$ git config --global user.name "Your Name"</p>
-        <p class="card-text">$ git config --global user.email "you@youraddress.com"</p>
-        <p class="card-text">$ git config --global push.default matching</p>
-        <p class="card-text">$ git config --global alias.co checkout</p>
-        <p class="card-text">$ git init</p>
-
-        <a href="https://djangocentral.com/building-a-blog-application-with-django"
-           class="btn btn-danger">whoami</a>
-    </div>
-</div>
+    {% endfor %}
 </div>
 
 {% endblock sidebar %}

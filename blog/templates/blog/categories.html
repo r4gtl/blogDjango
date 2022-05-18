@@ -3,6 +3,31 @@
 {% load blog_extras %}
 {% block content %}
 
+
+
+<br>
+<div class="container ">
+    <p class="">Posts in {{ category }} category:</p>
+    <div class="row justify-content-between">
+        <!-- Blog Entries Column -->
+        <div class="col-md-6 mt-3 right">
+            {% for post in category_posts %}
+            <div class="card mb-4">
+                <img src="{{ post.logo_post.url }}" class="card-img-top" style="max-width:100%">
+                <div class="card-body">
+                    <p class="card-title">{{ post.title }}</p>
+                    <p class="card-text text-muted">{{ post.category }}</p>
+                    <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
+                    <p class="card-text">{{post.content|slice:":200" }}</p>
+                    <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% block sidebar %} {% include 'partials/_sidebar.html' %} {% endblock sidebar %}
+    </div>
+    
+</div>
 {{ cats }}
 
 

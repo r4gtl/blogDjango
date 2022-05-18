@@ -48,7 +48,7 @@
             <div class="card mb-4">
                 <img src="{{ post.logo_post.url }}" class="card-img-top" style="max-width:100%; max-height: 100px;">
                 <div class="card-body">
-                    <p class="card-text text-muted">{{ post.category }}</p>
+                    <a href="{% url 'category' post.category_id  %}"><p class="card-text text-muted">{{ post.category }}</p></a>                    
                     <h2 class="card-title">{{ post.title|slice:":14" }}</h2>
                     <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
                     <!--<p class="card-text">{{post.content|slice:":200" }}</p>-->

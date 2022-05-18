@@ -21,7 +21,7 @@ class PostCategoryAdmin(admin.ModelAdmin):
 
 
 class PostAdmin(SummernoteModelAdmin):
-    list_display = ('title', 'slug', 'status', 'created_on', 'logo_post')
+    list_display = ('title', 'slug', 'status', 'fixing_status', 'created_on', 'logo_post')
     list_filter= ("status",)
     search_fields = ['title', 'content']        
     prepopulated_fields = {'slug': ('title', )}
