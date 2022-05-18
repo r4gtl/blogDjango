@@ -10,6 +10,15 @@ class PostList(generic.ListView):
     
     template_name = 'index.html'
     paginate_by = 9
+    
+    def get_context_data(self, *args, **kwargs):
+        cat_menu = PostCategory.objects.all().order_by('name')
+        context = super(PostList, self).get_context_data(*args, **kwargs)
+        context["cat_menu"] = cat_menu
+        return context
+        
+        
+        
 
 #class PostDetail(generic.DetailView):
  #   model = Post
