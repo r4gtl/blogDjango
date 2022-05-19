@@ -9,12 +9,12 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <li class="nav-item dropdown ">
+                        <a class="nav-link dropdown-toggle text-black" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Categories
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            {% for item in categories_list %}
+                            {% for item in cat_menu %}
                                 <li><a class="dropdown-item" href="{% url 'category' item.pk  %}">{{ item.name }}</a></li>
                             {% endfor %}
                             

@@ -11,30 +11,11 @@ class PostList(generic.ListView):
     template_name = 'index.html'
     paginate_by = 9
     
-    #def get_context_data(self, *args, **kwargs):
-     #   cat_menu = PostCategory.objects.all().order_by('name')
-      #  context = super(PostList, self).get_context_data(*args, **kwargs)
-      #  context["cat_menu"] = cat_menu
-      #  return context
-        
-        
-        
-
-#class PostDetail(generic.DetailView):
- #   model = Post
-  #  template_name = 'post_detail.html'
-
-def fixed_posts():
-    queryset_fixed=Post.objects.filter(fixing_status=1).order_by('-created_on')
-    return render('partials/_sidebar.html', {'queryset_fixed': queryset_fixed})
 
 def CategoryView(request, cats):
     category_posts = Post.objects.filter(category=cats)
     category = get_object_or_404(PostCategory, pk=cats)
     return render(request, 'blog/categories.html', {'cats': cats, 'category_posts': category_posts, 'category': category})
-
-    
-
 
 
 def post_detail(request, slug):
