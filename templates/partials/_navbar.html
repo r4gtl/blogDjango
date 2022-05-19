@@ -14,7 +14,7 @@
                             Categories
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            {% for item in cat_menu %}
+                            {% for item in categories_list %}
                                 <li><a class="dropdown-item" href="{% url 'category' item.pk  %}">{{ item.name }}</a></li>
                             {% endfor %}
                             
