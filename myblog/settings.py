@@ -91,6 +91,8 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'blog.context_processors.get_category_data',
                 'blog.context_processors.get_post_left_fixed',
+                'blog.context_processors.get_category_color',
+
             ],
         },
     },

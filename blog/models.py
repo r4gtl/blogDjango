@@ -17,6 +17,7 @@ FIXING_STATUS = (
 
 class PostCategory(models.Model):
     name = models.CharField(max_length=80)
+    category_color = models.CharField(max_length=7, default="#0074D9")
 
     def __str__(self):
         return(self.name)

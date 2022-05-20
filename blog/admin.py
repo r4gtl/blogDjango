@@ -15,7 +15,7 @@ class CommentAdmin(admin.ModelAdmin):
         
 
 class PostCategoryAdmin(admin.ModelAdmin):
-    list_display = ('name', )
+    list_display = ('name', 'category_color')
     search_fields = ('name',)
 
 

@@ -1,3 +1,5 @@
+
+
 body {
     
     font-family: 'Nunito', sans-serif;
@@ -14,8 +16,8 @@ body {
     background-color: #f00000;
     border-color: #dc281e;
 }
-.masthead {
-    background: #133a55;
+.masthead {    
+    background: #037971;
     height: auto;
     margin-top: 20px;
     padding-bottom: 15px;
@@ -35,7 +37,7 @@ body {
 
 
 footer {
-    background: #133a55;
+    background: #037971;
     height: auto;
     margin-top: 50px;
     
@@ -46,6 +48,7 @@ footer {
 a{
     text-decoration: none;
     color: #0074D9;
+    
   }
   
   .underline{
@@ -59,7 +62,7 @@ a{
     right: 0;
     width: 0;
     height: 2px;
-    background-color: #0074D9;
+    background-color: #0074D9;        
     transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
   }
   
